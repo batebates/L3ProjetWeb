@@ -25,7 +25,7 @@ SECRET_KEY = '%pqzdmzlz4o183)y5p_()inl*y6o-$pq+@@enr-(850xcwl)e0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mordor']
+ALLOWED_HOSTS = ['mordor','127.0.0.1']
 
 
 # Application definition
