@@ -1,0 +1,13 @@
+from django.http import HttpResponse
+from django.template import loader
+
+def index(request):
+	template = loader.get_template('salon/index.html')
+	return HttpResponse(template.render(context, request))
+
+    
+def detail(request, idRoom):
+	if(int(idRoom) >= 1000):
+		return HttpResponse("Too high number")
+	else:
+		return HttpResponse("You're in the room %s !" % idRoom)
