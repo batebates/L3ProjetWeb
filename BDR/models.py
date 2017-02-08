@@ -19,4 +19,3 @@ class Reponse(models.Model):
 	intitule = models.CharField(max_length=200)
 	utilisateur = models.ForeignKey(Utilisateur,on_delete=models.CASCADE)
 	question = models.ForeignKey(Question,on_delete=models.CASCADE)
-
