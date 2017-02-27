@@ -21,13 +21,14 @@
   </head>
   <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Notre super jeu !</a>
     </div>
 	<ul class="nav navbar-nav navbar-right">
-      	    <li><a href="#">Connexion</a></li>
+      	    <li><a href="#">Inscription</a></li>
+	    <li><a href="#">Connexion</a></li>
     	</ul>
 
   </div>
@@ -35,8 +36,10 @@
 
   <div class="container">
     <div class="col-xs-8">
+	<center>
       {% block content %}
       {% endblock %}
+	</center>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
