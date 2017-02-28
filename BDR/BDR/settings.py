@@ -33,7 +33,8 @@ ALLOWED_HOSTS = ['mordor','127.0.0.1']
 INSTALLED_APPS = [
 	#'room',
 	'room.apps.RoomConfig',
-	
+	'core',
+	'salon',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
