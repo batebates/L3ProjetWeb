@@ -34,7 +34,6 @@ INSTALLED_APPS = [
 	#'room',
 	'room.apps.RoomConfig',
 	'core',
-	'salon',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
