@@ -26,9 +26,43 @@
       <a class="navbar-brand" href="#">Notre super jeu !</a>
     </div>
 	<ul class="nav navbar-nav navbar-right">
-      	    <li><a href="#">Inscription</a></li>
-	    <li><a href="#">Connexion</a></li>
+      	    <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#ModalInscription">Inscription</button></li>
+	    <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#ModalConnexion">Connexion</button></li>
     	</ul>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="ModalInscription" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Inscription :</h4>
+      </div>
+      <div class="modal-body">
+        <p>Ici placer le formulaire d'inscription</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="ModalConnexion" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Connexion :</h4>
+      </div>
+      <div class="modal-body">
+        <p>Ici placer le formulaire de connexion</p>
+      </div>
+    </div>
 
   </div>
 </div>
