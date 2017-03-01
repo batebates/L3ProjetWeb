@@ -1,0 +1,32 @@
+{% block content %}
+<!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Inscription :</h4>
+      </div>
+      <div class="modal-body"> 
+	<form id="register-form" action="#" method="post" role="form" style="display: active;">
+		<div class="form-group">
+			<input type="text" name="pseudo" id="pseudo" tabindex="1" class="form-control" placeholder="Pseudo" value="">
+		</div>
+		<div class="form-group">
+			<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Adresse email" value="">
+		</div>
+		<div class="form-group">
+			<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Mot de passe">
+		</div>
+		<div class="form-group">
+			<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmer le mot de passe">
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="S'enregistrer">
+				</div>
+			</div>
+		</div>
+	</form>
+      </div>
+    </div>
+{% endblock %}

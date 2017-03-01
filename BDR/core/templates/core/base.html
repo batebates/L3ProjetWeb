@@ -36,16 +36,9 @@
 <div id="ModalInscription" class="modal fade" role="dialog">
   <div class="modal-dialog modal-sm">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Inscription :</h4>
-      </div>
-      <div class="modal-body">
-        <p>Ici placer le formulaire d'inscription</p>
-      </div>
-    </div>
+	{% block inscription %}
+	{% include "core/inscription.html" %}
+        {% endblock %} 
 
   </div>
 </div>
@@ -53,26 +46,16 @@
 <div id="ModalConnexion" class="modal fade" role="dialog">
   <div class="modal-dialog modal-sm">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Connexion :</h4>
-      </div>
-      <div class="modal-body">
-        <p>Ici placer le formulaire de connexion</p>
-      </div>
-    </div>
-
+	{% block connexion %}
+	{% include "core/connexion.html" %}
+        {% endblock %} 
   </div>
 </div>
 
   <div class="container">
     <div class="col-md-12-xs-8">
-	<center>
       {% block content %}
       {% endblock %}
-	</center>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
