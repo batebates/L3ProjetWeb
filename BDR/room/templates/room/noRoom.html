@@ -1,8 +1,12 @@
-<p>This room does not exist yet.</p>
-<p>Do you wish to create it ?</p>
-
-<form method="post" action="traitement.php">
-<p>
-<input type="submit" value="Create room" />
-</p>
-</form> 
+{% extends 'core/base.html' %}
+{% block content %}
+<div id="idRoom">
+	<h3> Salle n°{{ idRoom }}</h3>
+	<p>Cette salle n'existe pas, la créer ?</p>
+	<form method="post" action="./creation/">
+	{% csrf_token %}
+	<p>
+		<input type="submit" value="Créer la salle" />
+	</p>
+</div>
+{% endblock %}
