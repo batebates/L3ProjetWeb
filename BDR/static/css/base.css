@@ -43,3 +43,14 @@ ul {
 a {
 	color: #002F2F;
 }
+
+.modal-content {
+	background-color: #EFECCA;
+}
+
+.modal-header {
+	background-color: #046380;
+	color : #EFECCA;
+	text-align: center;
+}
+
