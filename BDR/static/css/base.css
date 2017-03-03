@@ -1,0 +1,29 @@
+.navbar-default {
+	background-color: #046380;
+}
+.navbar-default .navbar-brand {
+	color: #EFECCA;
+}
+.navbar-default .navbar-brand:hover {
+	color: #A7A37E;
+}
+.navbar-nav {
+	vertical-align: middle;
+	padding : 8px 8px;
+}
+.btn-bar {
+    color: #EFECCA;
+    background-color: #046380;
+    border-color: #046380;
+}
+.btn-bar:hover {
+    color: #A7A37E;
+    background-color: #046380;
+    border-color: #046380;
+}
+.btn {
+
+}
+body {
+	background-color: #EFECCA;
+}
