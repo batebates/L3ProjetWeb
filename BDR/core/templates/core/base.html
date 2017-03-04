@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load i18n %}
+{% load account socialaccount %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -38,7 +40,7 @@
 
 	{% block inscription %}
 	{% include "core/inscription.html" %}
-        {% endblock %} 
+        {% endblock %}
 
   </div>
 </div>
@@ -47,8 +49,8 @@
   <div class="modal-dialog modal-sm">
 
 	{% block connexion %}
-	{% include "core/connexion.html" %}
-        {% endblock %} 
+	{% include "account/login.html" %}
+        {% endblock %}
   </div>
 </div>
 

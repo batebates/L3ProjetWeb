@@ -1,3 +1,5 @@
+{% load i18n %}
+{% load account socialaccount %}
 {% block content %}
  <!-- Modal content-->
     <div class="modal-content">
@@ -6,7 +8,9 @@
         <h4 class="modal-title">Connexion :</h4>
       </div>
       <div class="modal-body">
-	<form id="login-form" action="#" method="post" role="form" style="display: block;">
+	<form id="login-form" action="{% url 'account_login' %}" method="POST" role="form" style="display: block;">
+    {% csrf_token %}
+    {{ form.as_p }}
 		<div class="form-group">
 			<input type="text" name="pseudo" id="pseudo" tabindex="1" class="form-control" placeholder="Pseudo" value="">
 		</div>
@@ -28,7 +32,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="text-center">
-						<a href="#" tabindex="5" class="mdp-oublie">Mot de passe oublié?</a>
+            <a class="mdp-oublie" tabindex="5" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
 					</div>
 				</div>
 			</div>

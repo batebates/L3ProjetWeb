@@ -1,3 +1,4 @@
+{% load i18n %}
 {% block content %}
 <!-- Modal content-->
     <div class="modal-content">
@@ -5,8 +6,13 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Inscription :</h4>
       </div>
-      <div class="modal-body"> 
-	<form id="register-form" action="#" method="post" role="form" style="display: active;">
+      <div class="modal-body">
+	<form class="signup" id="signup_form" action="{% url 'account_signup' %}" method="POST" role="form" style="display: active;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
 		<div class="form-group">
 			<input type="text" name="pseudo" id="pseudo" tabindex="1" class="form-control" placeholder="Pseudo" value="">
 		</div>
@@ -22,7 +28,7 @@
 		<div class="form-group">
 			<div class="row">
 				<div class="col-sm-6 col-sm-offset-3">
-					<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="S'enregistrer">
+          <button type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="S'enregistrer">{% trans "Sign Up" %} &raquo;</button>
 				</div>
 			</div>
 		</div>
