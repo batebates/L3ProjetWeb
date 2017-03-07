@@ -6,16 +6,13 @@
         <h4 class="modal-title">Connexion :</h4>
       </div>
       <div class="modal-body">
-	<form id="login-form" action="#" method="post" role="form" style="display: block;">
+	<form id="login-form" action="connexion" method="post" role="form" style="display: block;">
+    {% csrf_token %}
 		<div class="form-group">
 			<input type="text" name="pseudo" id="pseudo" tabindex="1" class="form-control" placeholder="Pseudo" value="">
 		</div>
 		<div class="form-group">
 			<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Mot de passe">
-		</div>
-		<div class="form-group text-center">
-			<input type="checkbox" tabindex="3" class="" name="seSouvenir" id="seSouvenir">
-			<label for="seSouvenir"> Se souvenir</label>
 		</div>
 		<div class="form-group">
 			<div class="row">
