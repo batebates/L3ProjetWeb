@@ -1,7 +1,35 @@
 {% extends 'core/base.html' %}
+
 {% block content %}
-<div id="room">
-  <h3> Salle n°{{ room.id }}</h3>
-  <p>La salle est ouverte !</p>
+<div class="row salon">
+<div class="col-md-9">
+ <h3> Jeu</h3>
+	<div class="carte">
+		<p>Enoncé</p>
+	</div>
+	<div class="col-md-2 carte">
+		<p>Carte 1</br> On va voir maintenant ce que ça fait si je met un texte super long ! </br> dzjqdjqzqzdqzj zjdzdzqmdkqjzdjqzdqz mjd qzjdkqmzdqdmqdjqkzjdzkqlqdjlqzdqjkzdjzqdjklqzdmjqzdjkqdqzmd</p>
+	</div>
+	<div class="col-md-2 carte">
+		<p>Carte 2</p>
+	</div>
+	<div class="col-md-2 carte">
+		<p>Carte 3</p>
+	</div>
+	<div class="col-md-2 carte">
+		<p>Carte 4</p>
+	</div>
+
+</div>
+<div class="col-md-3">
+	<h3> Salle n°{{ room.id }}</h3>
+	<ul>
+		<li>Joueur 1 <span class="glyphicon glyphicon-star"></li>
+		<li>Joueur 2</li>
+		<li>Joueur 3</li>
+		<li>Joueur 4</li>
+		<li>Joueur 5</li>
+	</ul>
+</div>
 </div>
 {% endblock %}

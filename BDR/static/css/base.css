@@ -54,3 +54,13 @@ a {
 	text-align: center;
 }
 
+.carte {
+	word-wrap: break-word;
+	padding: 10px 8px 8px 8px;
+	margin : 10px 5px 10px 5px;	
+	height: 100%;
+	width: 20%;
+	border-width: 3px;
+	border-color: #046380;
+	border-style: groove;
+}
