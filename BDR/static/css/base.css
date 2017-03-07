@@ -1,3 +1,7 @@
+.navbar-right form {
+	display: inline;
+}
+
 .navbar-default {
 	background-color: #046380;
 }
@@ -57,10 +61,23 @@ a {
 .carte {
 	word-wrap: break-word;
 	padding: 10px 8px 8px 8px;
-	margin : 10px 5px 10px 5px;	
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 1.75%;
+	margin-right: auto;
 	height: 100%;
-	width: 20%;
-	border-width: 3px;
+	width: 23%;
+	border-width: 5px;
 	border-color: #046380;
-	border-style: groove;
+	border-style: solid;
+	background-color: #A7A37E;
+	border-radius: 8px;
+	color: black;
+}
+#enonce {
+	color: #EFECCA;
+	background-color: #046380;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
 }
