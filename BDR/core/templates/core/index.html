@@ -4,11 +4,15 @@
 <div class="row">
 <div class="col-md-6 div-pp">
     <h3>Liste des salons</h3>
+    {% if rooms %}
 	<ul>
-		<li><a href="#">salon 1</a></li>
-		<li><a href="#">salon 2</a></li>
-		<li><a href="#">Salon 3</a></li>
+		{% for room in rooms %}
+			<a href="/room/{{ room.id }}/"> Salle : {{ room.id }} </a> <br />
+		{% endfor %}
 	</ul>
+	{% else %}
+	<p>Aucune salle n'est ouverte</p>
+	{% endif %}
 </div>
 <div class="col-md-6 div-pp">
     <h3>Créer un salon</h3>
