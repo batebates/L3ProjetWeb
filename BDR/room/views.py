@@ -8,16 +8,8 @@ from django.urls import reverse
 from room.models import Room
 
 def index(request):
-	open_rooms_list = Room.objects.filter(roomIsOpen=True)
-	
-	answer = ""
-	for e in open_rooms_list:
-		answer += "<a href='/room/" + str(e.id) + "'>" + str(e.id) + "</a> <br />"
-	
-	return HttpResponse(answer)
-	
-	#context = ""
-	#return render(request, 'room/index.html', context)
+	open_rooms_list = Room.objects.filter(roomIsOpen=True).order_by('id')
+	return render(request, 'room/index.html', {'openRooms' : open_rooms_list})
 
 def detail(request, idRoom):
 	try:

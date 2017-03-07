@@ -1,0 +1,8 @@
+<p>This room does not exist yet.</p>
+<p>Do you wish to create it ?</p>
+
+<form method="post" action="traitement.php">
+<p>
+<input type="submit" value="Create room " />
+</p>
+</form> 

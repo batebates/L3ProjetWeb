@@ -1,1 +1,18 @@
-<p>Open rooms list :</p>
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-6 div-pp">
+		<h3>Liste des salons ouverts</h3>
+		{% if openRooms %}
+		<ul>
+			{% for room in openRooms %}
+				<a href="/room/{{ room.id }}/"> Salle : {{ room.id }} </a> <br />
+			{% endfor %}
+		</ul>
+		{% else %}
+		<p>Aucun salon n'est pour l'instant ouvert</p>
+		{% endif %}
+	</div>
+</div>
+{% endblock content %}
