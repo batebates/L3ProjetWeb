@@ -12,10 +12,13 @@ from room.models import Room
 from core.models import Question, Reponse
 
 def random(self):
-	count = self.aggregate(count=Count('id'))['count']
-	random_index = randint(0, count - 1)
-		
-	return self.all()[random_index]
+	count = self.filter(statut='p').aggregate(count=Count('id'))['count']
+	
+	if count > 0 :
+		random_index = randint(0, count - 1)
+		return self.all()[random_index]
+	else :
+		return None
 	
 def randomIterable(self, nbObj):
 	listeRetour = []
@@ -23,14 +26,14 @@ def randomIterable(self, nbObj):
 	count = self.aggregate(count=Count('id'))['count']
 	
 	listeChoix = self
-	
-	for i in range(0,nbObj) :
-		retour = random(listeChoix)
-		listeChoix = listeChoix.exclude(id=retour.id)
-		listeRetour.append(retour)
-		
-	return listeRetour
+	if(count > 0) :
+		for i in range(0,nbObj) :
+			retour = random(listeChoix)
+			listeChoix = listeChoix.exclude(id=retour.id)
+			listeRetour.append(retour)
 			
+	return listeRetour
+
 def index(request):
 	open_rooms_list = Room.objects.filter(roomIsOpen=True).order_by('id')
 	return render(request, 'room/index.html', {'openRooms' : open_rooms_list})
