@@ -23,10 +23,10 @@ def random(self):
 def randomIterable(self, nbObj):
 	listeRetour = []
 	
-	count = self.aggregate(count=Count('id'))['count']
+	count = self.filter(statut='p').aggregate(count=Count('id'))['count']
 	
 	listeChoix = self
-	if(count > 0) :
+	if count > 0 :
 		for i in range(0,nbObj) :
 			retour = random(listeChoix)
 			listeChoix = listeChoix.exclude(id=retour.id)
