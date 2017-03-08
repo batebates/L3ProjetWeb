@@ -7,7 +7,6 @@ class Question(models.Model):
 class Reponse(models.Model):
 	intitule = models.CharField(max_length=200)
 	utilisateur = models.CharField(max_length=20)
-	question = models.ForeignKey(Question,on_delete=models.CASCADE)
 
 class Utilisateur(models.Model):
 	pseudo = models.CharField(max_length=20)
