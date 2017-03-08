@@ -69,3 +69,15 @@ def password_forget(request):
 	else:
 		form = PasswordForgetForm()
 	return render(request,'core/password_forget.html',locals())
+
+def profil(request):
+	error = False
+	user = request.user
+	if request.method == "POST":
+		form = request.POST
+		if form:
+			user.first_name = form["prenom"]
+			user.last_name = form["nom"]
+			#user.set_email(form["email"])
+			user.save()
+	return render(request,'core/profil.html',locals())
