@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Template
-from .forms import ConnexionForm,InscriptionForm
+from .forms import PasswordForgetForm
 from room.models import Room
 
 def index(request):
@@ -14,7 +14,6 @@ from django.contrib.auth import authenticate, login
 
 def connexion(request):
     error = False
-
     if request.method == "POST":
         form = request.POST
         if form:
@@ -26,7 +25,7 @@ def connexion(request):
             else:
                 error = True
 
-    return render(request, 'core/index.html')
+    return redirect('index')
 
 from django.contrib.auth import logout
 from django.shortcuts import render
@@ -40,19 +39,30 @@ def deconnexion(request):
 from django.contrib.auth.models import User
 
 def inscription(request):
-    error = False
-    if request.method == "POST":
-        form = request.POST
-        if form:
-            username = form["pseudo"]
-            password = form["password"]
-            email = form["email"]
-            user = User.objects.create_user(username,email, password)
-            if user:  # Si l'objet renvoye n'est pas None
-                login(request, user)  # nous connectons l'utilisateur
-            else: # sinon une erreur sera affichee
-                error = True
-    else:
-        form = ConnexionForm()
+	error = False
+	if request.method == "POST":
+		form = request.POST
+		if(form["password"] != form["confirm-password"]):
+			#request.add_error('confirm-password', _("You must type the same password each time."))
+			error = True
+			return redirect('index')
+		else:
+			username = form["pseudo"]
+			password = form["password"]
+			email = form["email"]
+			user = User.objects.create_user(username,email,password)
+			if user:  # Si l'objet renvoye n'est pas None
+				login(request, user)  # nous connectons l'utilisateur
+			else: # sinon une erreur sera affichee
+				error = True
+	else:
+		form = ConnexionForm()
+	return redirect('core/index.html')
 
-    return render(request, 'core/index.html')
+def password_forget(request):
+	error = False
+	if request.method == "POST":
+		form = PasswordForgetForm(request.POST)
+	else:
+		form = PasswordForgetForm()
+	return render(request,'core/password_forget.html',locals())
