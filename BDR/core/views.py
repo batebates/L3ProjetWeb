@@ -60,7 +60,7 @@ def inscription(request):
 				error = True
 	else:
 		form = ConnexionForm()
-	return redirect('core/index.html')
+	return redirect('index')
 
 def password_forget(request):
 	error = False
