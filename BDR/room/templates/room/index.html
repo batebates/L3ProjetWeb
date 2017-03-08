@@ -7,7 +7,7 @@
 		{% if openRooms %}
 		<ul>
 			{% for room in openRooms %}
-				<a href="/room/{{ room.id }}/"> Salle : {{ room.id }} </a> <br />
+				<a href="/room/{{ room.id }}/"> Salle : {{ room.id }} - {{ room.roomName }}</a> <br />
 			{% endfor %}
 		</ul>
 		{% else %}

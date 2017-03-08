@@ -5,7 +5,11 @@ from django.template import RequestContext
 from django.views.decorators.csrf import csrf_protect
 from django.urls import reverse
 
+from django.db.models.aggregates import Count
+from random import randint
+
 from room.models import Room
+from core.models import Question, Reponse
 
 def index(request):
 	open_rooms_list = Room.objects.filter(roomIsOpen=True).order_by('id')
@@ -13,8 +17,16 @@ def index(request):
 
 def detail(request, idRoom):
 	try:
+		def random(self):
+			count = self.aggregate(count=Count('id'))['count']
+			random_index = randint(0, count - 1)
+			return self.all()[random_index]
+
 		room = Room.objects.get(pk=idRoom)
-		return render(request, 'room/roomOpen.html', {'room':room})
+		questionAEnvoyer = random(Question.objects.all())
+		reponses = Reponse.objects.filter(question = questionAEnvoyer)
+		
+		return render(request, 'room/roomOpen.html', {'room':room, 'question':questionAEnvoyer, 'reponses':reponses})
 	except Room.DoesNotExist:
 		context = ""
 		return render(request, 'room/noRoom.html', {'idRoom':idRoom})
