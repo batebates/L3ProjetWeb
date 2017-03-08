@@ -28,9 +28,9 @@
     </div>
 	<ul class="nav navbar-nav navbar-right">
     {% if user.is_authenticated %}
-    <form method="get" action="#">
+    <form method="get" action="profil">
       {% csrf_token %}
-      <button type="submit" class="btn btn-bar btn-md" >Profil</button>
+      <button type="submit" class="btn btn-bar btn-md">Profil</button>
     </form>
     <form method="get" action="deconnexion">
       {% csrf_token %}
