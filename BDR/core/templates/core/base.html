@@ -30,16 +30,19 @@
     {% if user.is_authenticated %}
     <form method="get" action="#">
       {% csrf_token %}
-      <button type="submit" class="btn btn-bar btn-md" >Profil</button>
+	  {% if user.is_superuser %}
+      <button type="submit" class="btn btn-bar btn-md" ><i class="fa fa-star" title="Administrateur"></i> {{ user.username }} : Profil</button>
+	  {% else %}
+	  <button type="submit" class="btn btn-bar btn-md" >{{ user.username }} : Profil</button>
+	  {% endif %}
     </form>
     <form method="get" action="deconnexion">
       {% csrf_token %}
       <button type="submit" class="btn btn-bar btn-md" >Déconnexion</button>
     </form>
-
     {% else %}
-	    <button type="button" class="btn btn-bar btn-md" data-toggle="modal" data-target="#ModalInscription">Inscription</button>
-      <button type="button" class="btn btn-bar btn-md" data-toggle="modal" data-target="#ModalConnexion">Connexion</button>
+	<button type="button" class="btn btn-bar btn-md" data-toggle="modal" data-target="#ModalInscription">Inscription</button>
+    <button type="button" class="btn btn-bar btn-md" data-toggle="modal" data-target="#ModalConnexion">Connexion</button>
     {%endif%}
   </ul>
   </div>

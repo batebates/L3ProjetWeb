@@ -1,9 +1,10 @@
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template import loader
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, redirect
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_protect
 from django.urls import reverse
+from django.contrib.auth.decorators import user_passes_test
 
 from django.db.models.aggregates import Count
 from random import randint
@@ -27,7 +28,7 @@ def randomIterable(self, nbObj):
 	
 	listeChoix = self
 	if count > 0 :
-		for i in range(0,nbObj) :
+		for i in range(0,min(count, nbObj)) :
 			retour = random(listeChoix)
 			listeChoix = listeChoix.exclude(id=retour.id)
 			listeRetour.append(retour)
@@ -49,7 +50,10 @@ def detail(request, idRoom):
 		context = ""
 		return render(request, 'room/noRoom.html', {'idRoom':idRoom})
 
-
+def creationSalle(request):
+	form = CreationForm()
+	return redirect('index')
+	
 @csrf_protect
 def creation(request, idRoom):
 	csrfContext = RequestContext(request, idRoom)
