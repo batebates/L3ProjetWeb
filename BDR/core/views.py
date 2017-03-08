@@ -21,10 +21,10 @@ def connexion(request):
         if form:
             username = form["pseudo"]
             password = form["password"]
-            user = authenticate(username=username, password=password)  # Nous verifions si les donnees sont correctes
-            if user:  # Si l'objet renvoye n'est pas None
-                login(request, user)  # nous connectons l'utilisateur
-            else: # sinon une erreur sera affichee
+            user = authenticate(username=username, password=password)  
+            if user:
+                login(request, user)
+            else:
                 error = True
 
     return render(request, 'core/index.html')
