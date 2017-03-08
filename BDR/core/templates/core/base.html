@@ -26,18 +26,43 @@
     <div class="navbar-header">
       <a class="navbar-brand" href={% url 'index' %}>Notre super jeu !</a>
     </div>
-	   <ul class="nav navbar-nav navbar-right">
-        <form method="get" action="./inscription.html">
-            <button type="button" class="btn btn-bar btn-md" >Inscription</button>
-        </form>
-        <form method="get" action="./connexion.html">
-            <button type="button" class="btn btn-bar btn-md" >Connexion</button>
-        </form>
-
-    	</ul>
+	<ul class="nav navbar-nav navbar-right">
+    {% if user.is_authenticated %}
+    <form method="get" action="deconnexion">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-bar btn-md" >Déconnexion</button>
+    </form>
+    <form method="get" action="#">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-bar btn-md" >Profil</button>
+    </form>
+    {% else %}
+	    <button type="button" class="btn btn-bar btn-md" data-toggle="modal" data-target="#ModalInscription">Inscription</button>
+      <button type="button" class="btn btn-bar btn-md" data-toggle="modal" data-target="#ModalConnexion">Connexion</button>
+    {%endif%}
+  </ul>
   </div>
 </div>
 
+<!-- Modal -->
+<div id="ModalInscription" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+	{% block inscription %}
+	{% include "core/inscription.html" %}
+        {% endblock %}
+
+  </div>
+</div>
+<!-- Modal -->
+<div id="ModalConnexion" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+	{% block connexion %}
+	{% include "core/connexion.html" %}
+        {% endblock %}
+  </div>
+</div>
 
   <div class="container">
       {% block content %}
