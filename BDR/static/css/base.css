@@ -1,3 +1,17 @@
+.footer {
+	border-top: solid 3px #046380;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 45px;	
+	background-color: #046380;
+	color: #EFECCA;
+}
+.foot p {
+	padding-top: 10px;
+}
+
 .navbar-right form {
 	display: inline;
 }
@@ -34,6 +48,8 @@ body {
 .div-pp {
 	text-align: center;
 	color: #002F2F;
+	/*border-right: solid 5px #046380;*/
+	border-radius: 5px;	
 }
 h3 {
 	color: #046380;
