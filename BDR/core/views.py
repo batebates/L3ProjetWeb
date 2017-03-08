@@ -17,11 +17,10 @@ def connexion(request):
 
     if request.method == "POST":
         form = request.POST
-        print form
         if form:
             username = form["pseudo"]
             password = form["password"]
-            user = authenticate(username=username, password=password)  
+            user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
             else:
@@ -44,7 +43,6 @@ def inscription(request):
     error = False
     if request.method == "POST":
         form = request.POST
-        print form
         if form:
             username = form["pseudo"]
             password = form["password"]
