@@ -2,5 +2,9 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index')
+    url(r'^connexion$', views.connexion, name='connexion'),
+    url(r'^deconnexion$', views.deconnexion, name='deconnexion'),
+    url(r'^inscription$', views.inscription, name='inscription'),
+    url(r'^password_forget$', views.password_forget,name='password_forget'),
+    url(r'^$', views.index, name='index'),
 ]
