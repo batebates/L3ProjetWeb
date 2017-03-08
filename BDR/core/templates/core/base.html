@@ -30,7 +30,7 @@
     {% if user.is_authenticated %}
     <form method="get" action="#">
       {% csrf_token %}
-      <button type="submit" class="btn btn-bar btn-md" >Profil</button>
+      <button type="submit" class="btn btn-bar btn-md" >{{ user.username }} (Mon compte)</button>
     </form>
     <form method="get" action="deconnexion">
       {% csrf_token %}
