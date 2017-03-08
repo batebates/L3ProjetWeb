@@ -19,11 +19,18 @@ def random(self):
 	
 def randomIterable(self, nbObj):
 	reponses = []
+	listeReponsesPossibles = []
 	count = self.aggregate(count=Count('id'))['count']
+	
+	for i in range(0, count) :
+		reponsePossible = Reponse.objects.get(pk=i)
+		listeReponsesPossibles.append(reponsePossible)
+	
 	for i in range(0,nbObj) :
-		random_index = randint(0, count - 1)
-		reponse = self.all()[random_index]
+		random_index = randint(0, len(listeReponsesPossibles) - 1)
+		reponse = listeReponsesPossibles[random_index]
 		reponses.append(reponse)
+		listeReponsesPossibles.remove[random_index]
 		
 	return reponses
 			
