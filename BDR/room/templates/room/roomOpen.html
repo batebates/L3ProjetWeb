@@ -2,35 +2,64 @@
 
 {% block content %}
 <div class="row salon">
-<div class="col-md-9">
- <h3> Jeu</h3>
+<div class="col-sm-9">
+ <h3>Jeu</h3>
 	<div class="carte" id="enonce">
 		<p>Enoncé</p>
 	</div>
 	<div class="row">
-	<div class="col-md-2 carte">
+	
+	<div class="carte">
 		<p>Carte 1</br> On va voir maintenant ce que ça fait si je met un texte super long ! </br> dzjqdjqzqzdqzj zjdzdzqmdkqjzdjqzdqz mjd qzjdkqmzdqdmqdjqkzjdzkqlqdjlqzdqjkzdjzqdjklqzdmjqzdjkqdqzmd</p>
 	</div>
-	<div class="col-md-2 carte">
+	<div class="carte">
 		<p>Carte 2</p>
 	</div>
-	<div class="col-md-2 carte">
+	<div class="carte">
 		<p>Carte 3</p>
 	</div>
-	<div class="col-md-2 carte">
+	<div class="carte">
 		<p>Carte 4</p>
 	</div>
 	</div>
 </div>
-<div class="col-md-3">
+<div class="col-sm-3 joueur">
 	<h3> Salle n°{{ room.id }}</h3>
-	<ul>
-		<li>Joueur 1 <span class="glyphicon glyphicon-star" title="Maitre du jeu"></li>
-		<li>Joueur 2</li>
-		<li>Joueur 3</li>
-		<li>Joueur 4</li>
-		<li>Joueur 5</li>
-	</ul>
+	<table class="table">
+		<tr>
+			<td>
+			 <p><i  class="fa fa-user-o" title="Joueur"></i>Jodjsjdzlkueureidzjdoz1</p>
+			</td>
+			<td>
+				12
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p><i  class="fa fa-user-o" title="Joueur"></i>Joueur2 </p>
+			</td>
+			<td>
+				5
+			</td>
+		</tr>
+		<tr>
+			<td>
+			 <p><i  class="fa fa-star" title="Maitre du jeu"></i>Joueur3 </p>
+			</td>
+			<td>
+				8
+			</td>
+		</tr>
+		<tr>
+			<td>
+			 <p><i  class="fa fa-user-o" title="Joueur"></i>Joueur4</p> 
+			</td>
+			<td>
+				8
+			</td>
+		</tr>
+
+	</table>
 </div>
 </div>
 {% endblock %}
