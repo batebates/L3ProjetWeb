@@ -1,3 +1,7 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
 .footer {
 	border-top: solid 3px #046380;
 	position: absolute;
@@ -44,6 +48,7 @@
 }
 body {
 	background-color: #EFECCA;
+	margin-bottom: 60px;
 }
 .div-pp {
 	text-align: center;
