@@ -78,6 +78,6 @@ def profil(request):
 		if form:
 			user.first_name = form["prenom"]
 			user.last_name = form["nom"]
-			#user.set_email(form["email"])
+			user.email = form["email"]
 			user.save()
 	return render(request,'core/profil.html',locals())

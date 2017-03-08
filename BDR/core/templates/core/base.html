@@ -28,11 +28,11 @@
     </div>
 	<ul class="nav navbar-nav navbar-right">
     {% if user.is_authenticated %}
-    <form method="get" action="profil">
+    <form method="get" action="{% url 'profil' %}">
       {% csrf_token %}
       <button type="submit" class="btn btn-bar btn-md">Profil</button>
     </form>
-    <form method="get" action="deconnexion">
+    <form method="get" action="{% url 'deconnexion' %}">
       {% csrf_token %}
       <button type="submit" class="btn btn-bar btn-md" >Déconnexion</button>
     </form>
