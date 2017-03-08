@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% block content %}
 <div id="idRoom">
-	<h3> Salle n°{{ idRoom }}</h3>
+	<h3>Salle n°{{ idRoom }}</h3>
 	<p>Cette salle n'existe pas, la créer ?</p>
 	<form method="post" action="./creation/">
 	{% csrf_token %}
