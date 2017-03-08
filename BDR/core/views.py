@@ -9,7 +9,7 @@ def index(request):
 	first_closed_room = open_rooms_list.reverse().first()
 	if first_closed_room :
 		first_closed_room_id = first_closed_room.id + 1
-	else :
+	else : # Si aucune salle n'est ouverte
 		first_closed_room_id = 1
 
 	return render(request, 'core/index.html', {'openRooms' : open_rooms_list, 'closedRoomId' : first_closed_room_id})
