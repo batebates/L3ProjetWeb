@@ -18,21 +18,18 @@ def random(self):
 	return self.all()[random_index]
 	
 def randomIterable(self, nbObj):
-	reponses = []
-	listeReponsesPossibles = []
+	listeRetour = []
+	
 	count = self.aggregate(count=Count('id'))['count']
 	
-	for i in range(0, count) :
-		reponsePossible = Reponse.objects.get(pk=i)
-		listeReponsesPossibles.append(reponsePossible)
+	listeChoix = self
 	
 	for i in range(0,nbObj) :
-		random_index = randint(0, len(listeReponsesPossibles) - 1)
-		reponse = listeReponsesPossibles[random_index]
-		reponses.append(reponse)
-		listeReponsesPossibles.remove[random_index]
+		retour = random(listeChoix)
+		listeChoix = listeChoix.exclude(id=retour.id)
+		listeRetour.append(retour)
 		
-	return reponses
+	return listeRetour
 			
 def index(request):
 	open_rooms_list = Room.objects.filter(roomIsOpen=True).order_by('id')
