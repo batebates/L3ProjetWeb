@@ -24,26 +24,27 @@ def index(request):
 from django.contrib.auth import authenticate, login
 
 def connexion(request):
-	message_error = None
-	if request.method == "POST":
-		form = request.POST
+    error = False
+    if request.method == "POST":
+        form = request.POST
+        if form:
+            if form["password"] is None:
+            	message_error = "Le mot de passe n'a pas été indiqué"
+            	return redirect('index')
 
-	if form["password"] is None:
-		message_error = "Le mot de passe n'a pas été indiqué"
-		return redirect('index')
+            if form["pseudo"] is None:
+            	message_error = "Le pseudo n'a pas été indiqué"
+            	return redirect('index')
+            username = form["pseudo"]
+            password = form["password"]
+            user = authenticate(username=username, password=password)
+            if user:
+                login(request, user)
+            else:
+                message_error ="Les identifiants sont incorrects"
+                error = True
 
-	if form["pseudo"] is None:
-		message_error = "Le pseudo n'a pas été indiqué"
-		return redirect('index')
-
-	username = form["pseudo"]
-	password = form["password"]
-	user = authenticate(username=username, password=password)
-	if user:
-		login(request, user)
-	else:
-		error = "Les identifiants sont incorrects"
-	return redirect('index')
+    return redirect('index')
 
 from django.contrib.auth import logout
 from django.shortcuts import render
