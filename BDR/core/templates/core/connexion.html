@@ -6,7 +6,7 @@
         <h4 class="modal-title">Connexion :</h4>
       </div>
       <div class="modal-body">
-	<form id="login-form" action="connexion" method="post" role="form" style="display: block;">
+	<form id="login-form" action="{% url 'connexion' %}" method="post" role="form" style="display: block;">
     {% csrf_token %}
 		<div class="form-group">
 			<input type="text" name="pseudo" id="pseudo" tabindex="1" class="form-control" placeholder="Pseudo" value="">

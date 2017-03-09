@@ -7,7 +7,7 @@
         <h4 class="modal-title">Inscription :</h4>
       </div>
       <div class="modal-body">
-	<form class="signup" id="signup_form" action="inscription" method="POST" role="form" style="display: active;">
+	<form class="signup" id="signup_form" action="{% url 'inscription' %}" method="POST" role="form" style="display: active;">
     {% csrf_token %}
     {{ form.as_p }}
 		<div class="form-group">
