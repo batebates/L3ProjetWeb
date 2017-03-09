@@ -1,8 +1,16 @@
+# coding=utf-8
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Template
 from .forms import PasswordForgetForm
 from room.models import Room
+import re
+
+def validateEmail(email):
+    if len(email) > 6:
+        if re.match('\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b', email) != None:
+            return 1
+    return 0
 
 def index(request):
 	open_rooms_list = Room.objects.filter(roomIsOpen=True).order_by('id')[:5]
@@ -16,19 +24,26 @@ def index(request):
 from django.contrib.auth import authenticate, login
 
 def connexion(request):
-    error = False
-    if request.method == "POST":
-        form = request.POST
-        if form:
-            username = form["pseudo"]
-            password = form["password"]
-            user = authenticate(username=username, password=password)
-            if user:
-                login(request, user)
-            else:
-                error = True
+	message_error = None
+	if request.method == "POST":
+		form = request.POST
 
-    return redirect('index')
+	if form["password"] is None:
+		message_error = "Le mot de passe n'a pas été indiqué"
+		return redirect('index')
+
+	if form["pseudo"] is None:
+		message_error = "Le pseudo n'a pas été indiqué"
+		return redirect('index')
+
+	username = form["pseudo"]
+	password = form["password"]
+	user = authenticate(username=username, password=password)
+	if user:
+		login(request, user)
+	else:
+		error = "Les identifiants sont incorrects"
+	return redirect('index')
 
 from django.contrib.auth import logout
 from django.shortcuts import render
@@ -42,25 +57,28 @@ def deconnexion(request):
 from django.contrib.auth.models import User
 
 def inscription(request):
-	error = False
-	if request.method == "POST":
-		form = request.POST
-		if(form["password"] != form["confirm-password"]):
-			#request.add_error('confirm-password', _("You must type the same password each time."))
-			error = True
-			return redirect('index')
-		else:
-			username = form["pseudo"]
-			password = form["password"]
-			email = form["email"]
-			user = User.objects.create_user(username,email,password)
-			if user:  # Si l'objet renvoye n'est pas None
-				login(request, user)  # nous connectons l'utilisateur
-			else: # sinon une erreur sera affichee
-				error = True
-	else:
-		form = ConnexionForm()
-	return redirect('index')
+    message_error = None
+    if request.method == "POST":
+        form = request.POST
+        if(form["password"] != form["confirm-password"]):
+            message_error = "Les mots de passe doivent être identiques"
+            return redirect('index')
+        if validateEmail(form["email"]) is False:
+            message_error = "Email invalide"
+            return redirect('index')
+        else:
+            username = form["pseudo"]
+            password = form["password"]
+            email = form["email"]
+            user = User.objects.create_user(username,email,password)
+        if user:  # Si l'objet renvoye n'est pas None
+            login(request, user)  # nous connectons l'utilisateur
+        else: # sinon une erreur sera affichee
+            message_error = "Erreur d'inscription"
+    else:
+        form = ConnexionForm()
+    return redirect('index')
+
 
 def password_forget(request):
 	error = False
