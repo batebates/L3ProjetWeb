@@ -1,0 +1,10 @@
+appdirs==1.4.3
+Django==1.10.3
+packaging==16.8
+pycups==1.9.73
+pycurl==7.43.0
+pyparsing==2.1.10
+pysmbc==1.0.15.6
+pyxdg==0.25
+PyYAML==3.12
+six==1.10.0
