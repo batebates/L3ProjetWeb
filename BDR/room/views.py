@@ -14,23 +14,23 @@ from core.models import Question, Reponse
 def random(self):
 	count = self.aggregate(count=Count('id'))['count']
 	random_index = randint(0, count - 1)
-		
+
 	return self.all()[random_index]
-	
+
 def randomIterable(self, nbObj):
 	listeRetour = []
-	
+
 	count = self.aggregate(count=Count('id'))['count']
-	
+
 	listeChoix = self
-	
+
 	for i in range(0,nbObj) :
 		retour = random(listeChoix)
 		listeChoix = listeChoix.exclude(id=retour.id)
 		listeRetour.append(retour)
-		
+
 	return listeRetour
-			
+
 def index(request):
 	open_rooms_list = Room.objects.filter(roomIsOpen=True).order_by('id')
 	return render(request, 'room/index.html', {'openRooms' : open_rooms_list})
@@ -40,7 +40,7 @@ def detail(request, idRoom):
 		room = Room.objects.get(pk=idRoom)
 		questionAEnvoyer = random(Question.objects.all())
 		reponses = randomIterable(Reponse.objects.all(), 4)
-		
+
 		return render(request, 'room/roomOpen.html', {'room':room, 'question':questionAEnvoyer, 'reponses':reponses})
 	except Room.DoesNotExist:
 		context = ""

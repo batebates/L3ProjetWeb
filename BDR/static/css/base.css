@@ -161,3 +161,13 @@ i{
 	white-space:nowrap;
 }
 /* Fin style des salons */
+
+/* A garder ? */
+.form_col {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 3px 0px;
+    width: 200px;
+    min-height: 1px;
+    text-align: right;
+}
