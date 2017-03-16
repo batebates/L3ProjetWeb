@@ -3,13 +3,15 @@
 {% block content %}
 <div class="container">
 <div class="row">
-	<div class="col-sm-4-offset-4 div-pp">
+	<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 div-profil">
 		<h3>Profil</h3>
     <form action="profil" method="POST">
       {% csrf_token %}
-    <h4>Informations Personnelles</h4>
+      <label for="prenom">Prénom</label>
       <input type="text" name="prenom" id="prenom"  class="form-control" placeholder="Prenom" value="{{user.first_name}}">
+      <label for="nom">Nom</label>
       <input type="text" name="nom" id="nom"  class="form-control" placeholder="Nom" value={{user.last_name}}>
+      <label for="email">Email</label>
       <input type="email" name="email" id="email" class="form-control" placeholder="Adresse email" value="{{user.email}}">
       <input type="submit" value="Enregistrer les modifications" />
     </form>

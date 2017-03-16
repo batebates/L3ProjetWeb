@@ -62,18 +62,39 @@ html {
 body {
 	background-color: #EFECCA;
 	margin-bottom: 60px;
+	color: #002F2F;
 }
 
 .div-pp {
 	text-align: center;
-	color: #002F2F;
-	/*border-right: solid 5px #046380;*/
-	border-radius: 5px;	
+}
+
+.div-profil form {
+	text-align: left;
+}
+
+input[type=submit] {
+	margin: 8px;
+	background-color: #046380;
+	color: #EFECCA;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 8px;
+}
+
+input[type=submit]:hover {
+	color: #A7A37E;
+}
+
+.form-control{
+	margin: 5px;
 }
 
 h3 {
 	color: #046380;
 	margin-bottom: 18px;
+	text-align: center;
 }
 
 ul {
@@ -105,12 +126,6 @@ i{
 /* Fin style des modales */
 
 /* Debut style des salons */
-.salon h3 {
-	text-align: center;
-	margin-bottom: 25px;
-
-}
-
 .carte {
 	word-wrap: break-word;
 	padding: 10px 8px 8px 8px;
