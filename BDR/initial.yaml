@@ -1,0 +1,106 @@
+- model: room.room
+  pk: 1
+  fields: {roomIsOpen: true, roomName: Salon des sucks}
+- model: room.room
+  pk: 2
+  fields: {roomIsOpen: true, roomName: Salon des meilleurs}
+- model: room.room
+  pk: 3
+  fields: {roomIsOpen: true, roomName: ''}
+- model: room.room
+  pk: 4
+  fields: {roomIsOpen: true, roomName: ''}
+- model: room.room
+  pk: 5
+  fields: {roomIsOpen: true, roomName: ''}
+- model: room.room
+  pk: 6
+  fields: {roomIsOpen: true, roomName: ''}
+- model: room.room
+  pk: 7
+  fields: {roomIsOpen: true, roomName: ''}
+- model: room.room
+  pk: 8
+  fields: {roomIsOpen: true, roomName: ''}
+- model: room.room
+  pk: 9
+  fields: {roomIsOpen: true, roomName: ''}
+- model: room.room
+  pk: 10
+  fields: {roomIsOpen: true, roomName: ''}
+- model: room.room
+  pk: 11
+  fields: {roomIsOpen: true, roomName: ''}
+- model: core.question
+  pk: 1
+  fields: {intitule: LAST DRAGONBOOOORN, utilisateur: Admin}
+- model: core.question
+  pk: 2
+  fields: {intitule: Miraak est une petite tafiole, utilisateur: Admin}
+- model: core.reponse
+  pk: 1
+  fields: {intitule: Tu bluffes Martoni, utilisateur: Admin}
+- model: core.reponse
+  pk: 2
+  fields: {intitule: "R\xE9ponse D", utilisateur: Admin}
+- model: core.reponse
+  pk: 3
+  fields: {intitule: Obi-Wan Kenobi, utilisateur: Admin}
+- model: core.reponse
+  pk: 4
+  fields: {intitule: Miskine, utilisateur: Admin}
+- model: core.reponse
+  pk: 5
+  fields: {intitule: I've got you in might sights, utilisateur: Admin}
+- model: core.reponse
+  pk: 6
+  fields: {intitule: Meeeeh, utilisateur: Admin}
+- model: core.reponse
+  pk: 7
+  fields: {intitule: "P\xE9core", utilisateur: Admin}
+- model: auth.user
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$30000$x19L5eVZ1baX$Zf8LUTH3kAjjooAtOfU2mrByCv8F/epc/ZKFLfxObcQ=
+    last_login: 2017-03-08 08:41:57.873805+00:00
+    is_superuser: true
+    username: LeSingeAffame
+    first_name: ''
+    last_name: ''
+    email: tamere@mescouilles.com
+    is_staff: true
+    is_active: true
+    date_joined: 2017-03-08 08:40:33.922750+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 2
+  fields:
+    password: pbkdf2_sha256$30000$r0SWE6KDq9N9$WeptapAjPihoyZPUkXKDjBSWXY4h1zO5wDVS2nbD8GA=
+    last_login: 2017-03-08 16:42:09.391608+00:00
+    is_superuser: true
+    username: baredi
+    first_name: baba
+    last_name: Decr
+    email: baptiste.decrand@laposte.net
+    is_staff: true
+    is_active: true
+    date_joined: 2017-03-08 15:31:46.603556+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 3
+  fields:
+    password: pbkdf2_sha256$30000$fHhhBdI88j2w$dpOeVxJq5MLsthdvUHYmS6AwoU4jhiH3Cbzm/UCuRRI=
+    last_login: 2017-03-09 11:33:56.845012+00:00
+    is_superuser: false
+    username: Super
+    first_name: "R\xE9mi"
+    last_name: Bouvet
+    email: super@super.super
+    is_staff: false
+    is_active: true
+    date_joined: 2017-03-08 16:48:50.879098+00:00
+    groups: []
+    user_permissions: []
+
