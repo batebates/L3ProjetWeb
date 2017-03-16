@@ -1,21 +1,25 @@
+/* Debut style du footer */
 html {
 	position: relative;
 	min-height: 100%;
 }
+
 .footer {
 	border-top: solid 3px #046380;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	/* Set the fixed height of the footer here */
 	height: 45px;	
 	background-color: #046380;
 	color: #EFECCA;
 }
+
 .foot p {
 	padding-top: 10px;
 }
+/* Fin style du footer*/
 
+/* Debut style de la navigation */
 .navbar-right form {
 	display: inline;
 }
@@ -23,53 +27,72 @@ html {
 .navbar-default {
 	background-color: #046380;
 }
+
 .navbar-default .navbar-brand {
 	color: #EFECCA;
 }
+
 .navbar-default .navbar-brand:hover {
 	color: #A7A37E;
 }
+
 .navbar-nav {
 	vertical-align: middle;
 	padding : 8px 8px;
 }
+
 .btn-bar {
     color: #EFECCA;
     background-color: #046380;
     border-color: #046380;
 }
+
 .btn-bar:hover {
     color: #A7A37E;
     background-color: #046380;
     border-color: #046380;
 }
+/* Fin style de la navigation */
+
+/* Debut style de la page */ 
 .btn {
 
 }
+
 body {
 	background-color: #EFECCA;
 	margin-bottom: 60px;
 }
+
 .div-pp {
 	text-align: center;
 	color: #002F2F;
 	/*border-right: solid 5px #046380;*/
 	border-radius: 5px;	
 }
+
 h3 {
 	color: #046380;
 	margin-bottom: 18px;
 }
+
 ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
 	font-size: 16px;
 }
+
 a {
 	color: #002F2F;
 }
 
+i{
+	margin: 4px;
+}
+/* Fin style de la page */
+
+/* Debut style des modales */
 .modal-content {
 	background-color: #EFECCA;
 }
@@ -79,12 +102,15 @@ a {
 	color : #EFECCA;
 	text-align: center;
 }
+/* Fin style des modales */
 
+/* Debut style des salons */
 .salon h3 {
 	text-align: center;
 	margin-bottom: 25px;
 
 }
+
 .carte {
 	word-wrap: break-word;
 	padding: 10px 8px 8px 8px;
@@ -102,6 +128,7 @@ a {
 	color: black;
 	float: left;
 }
+
 #enonce {
 	color: #EFECCA;
 	background-color: #046380;
@@ -110,12 +137,12 @@ a {
 	margin-right: auto;
 	float: none;
 }
+
 .joueur {
 	padding-left: 1%;
 }
-i{
-	margin: 4px;
-}
+
 .joueur p{
 	white-space:nowrap;
 }
+/* Fin style des salons */

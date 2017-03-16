@@ -6,9 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" href="../../favicon.ico"> -->
 
   <title>BDR</title>
   <!-- Latest compiled and minified CSS -->
@@ -21,6 +18,8 @@
   <link rel="stylesheet" href="{% static  "css/base.css" %}">
   </head>
   <body>
+
+  <!-- Barre de navigation -->
 <div class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
@@ -45,7 +44,7 @@
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Modale d'inscription -->
 <div id="ModalInscription" class="modal fade" role="dialog">
   <div class="modal-dialog modal-sm">
 
@@ -55,7 +54,7 @@
 
   </div>
 </div>
-<!-- Modal -->
+<!-- Modal de connexion -->
 <div id="ModalConnexion" class="modal fade" role="dialog">
   <div class="modal-dialog modal-sm">
 
@@ -65,9 +64,11 @@
   </div>
 </div>
 
+<!-- Contenu de la page -->
       {% block content %}
       {% endblock %}
 
+<!-- Footer -->
 <footer class="footer">
         <div class="container foot">
 		<p><i class="fa fa-copyright" aria-hidden="true"></i>2017 BDR Tous droits réservés. </p>
