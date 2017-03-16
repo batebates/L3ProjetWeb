@@ -17,7 +17,6 @@ On lance l'environnement :
 
 	source ./archiWeb/bin/activate	
 
-On installe le projet :
 On clone le projet et on installe les packets necessaires :
 
 
