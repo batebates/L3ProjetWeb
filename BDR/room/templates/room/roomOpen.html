@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container-fluid">
@@ -10,11 +11,14 @@
 				<div class="carte" id="enonce">
 					<p>{{ question.intitule }}</p>
 				</div>
-				
+
 				<div class="row">
 				{% for reponse in reponses %}
 					<div class="col-md-2 carte">
-						<p> {{ reponse.intitule }} </p>
+						<form id=carte-{{reponse.id}} name={{reponse.intitule}} class="gui_element" action="#" method="POST">
+         			{% csrf_token %}
+							<input type="submit" name="submitCard" id="carte" value = "{{ reponse.intitule }}" ></input>
+						</form>
 					</div>
 				{% endfor %}
 				</div>
@@ -30,34 +34,30 @@
 		<table class="table">
 		<tr>
 			<td>
-			 <p><i class="fa fa-user-o" title="Joueur"></i> Jodjsjdzlkueureidzjdoz1</p>
+			 <p id=joueur1 value={{player1}}><i class="fa fa-user-o" title="Joueur"></i> </p>
 			</td>
-			<td>
-				12
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p><i class="fa fa-user-o" title="Joueur"></i> Joueur2 </p>
-			</td>
-			<td>
-				5
+			<td id=score1>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			 <p><i class="fa fa-star" title="Maitre du jeu"></i> Joueur3 </p>
+			<p id=joueur2><i class="fa fa-user-o" title="Joueur"></i> {{player2}} </p>
 			</td>
-			<td>
-				8
+			<td id=score2>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			 <p><i class="fa fa-user-o" title="Joueur"></i> Joueur4</p> 
+			 <p id=joueur3><i class="fa fa-star" title="Maitre du jeu"></i> {{player3}} </p>
 			</td>
+			<td id=score3>
+			</td>
+		</tr>
+		<tr>
 			<td>
-				8
+			 <p id=joueur4><i class="fa fa-user-o" title="Joueur"></i> {{player4}}</p>
+			</td>
+			<td id=score4>
 			</td>
 		</tr>
 
@@ -65,4 +65,17 @@
   </div>
 </div>
 </div>
+
+<script>
+
+var ws = new WebSocket((window.location.protocol == 'http') ? 'ws:' : 'ws:' +  window.location.host + '/room/{{room.id}}')
+</script>
+<script type='text/javascript' charset = "utf-8">
+	var token ="";
+	var path = "{{room.id}}"
+	var user = "{{ request.user.username }}"
+</script>
+{% endblock %}
+{% block jquery %}
+<script src="{% static 'js/Jeu.js' %}" charset="utf-8"></script>
 {% endblock %}

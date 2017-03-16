@@ -8,7 +8,7 @@ html {
 	bottom: 0;
 	width: 100%;
 	/* Set the fixed height of the footer here */
-	height: 45px;	
+	height: 45px;
 	background-color: #046380;
 	color: #EFECCA;
 }
@@ -54,7 +54,7 @@ body {
 	text-align: center;
 	color: #002F2F;
 	/*border-right: solid 5px #046380;*/
-	border-radius: 5px;	
+	border-radius: 5px;
 }
 h3 {
 	color: #046380;
@@ -118,4 +118,12 @@ i{
 }
 .joueur p{
 	white-space:nowrap;
+}
+.form_col {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 3px 0px;
+    width: 200px;
+    min-height: 1px;
+    text-align: right;
 }

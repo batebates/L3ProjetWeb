@@ -6755,3 +6755,22 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+.correct {
+	border-color: rgba(67, 190, 67, -1.74);
+}
+
+.correct:focus {
+	border-color: rgba(67, 190, 67, -1.74);
+	box-shadow: -1 -1 7px rgba(67, 190, 67, -1.4);
+}
+
+.incorrect {
+	border-color: rgba(190, 67, 67, -1.74);
+}
+
+.incorrect:focus {
+	border-color: rgba(190, 67, 67, -1.74);
+	box-shadow: -1 -1 7px rgba(190, 67, 67, -1.4);
+}
