@@ -12,10 +12,14 @@ from room.models import Room
 from core.models import Question, Reponse
 
 def random(self):
-	count = self.aggregate(count=Count('id'))['count']
-	random_index = randint(0, count - 1)
-
-	return self.all()[random_index]
+	count = self.filter(statut='p').aggregate(count=Count('id'))['count']
+	
+	if count > 0 :
+		random_index = randint(0, count - 1)
+		return self.all()[random_index]
+	else :
+		return None
+	
 
 def randomIterable(self, nbObj):
 	listeRetour = []
@@ -26,8 +30,9 @@ def randomIterable(self, nbObj):
 
 	for i in range(0,nbObj) :
 		retour = random(listeChoix)
-		listeChoix = listeChoix.exclude(id=retour.id)
-		listeRetour.append(retour)
+		if retour :
+			listeChoix = listeChoix.exclude(id=retour.id)
+			listeRetour.append(retour)
 
 	return listeRetour
 
@@ -40,12 +45,12 @@ def detail(request, idRoom):
 		room = Room.objects.get(pk=idRoom)
 		questionAEnvoyer = random(Question.objects.all())
 		reponses = randomIterable(Reponse.objects.all(), 4)
-
+		
 		return render(request, 'room/roomOpen.html', {'room':room, 'question':questionAEnvoyer, 'reponses':reponses})
+		
 	except Room.DoesNotExist:
 		context = ""
 		return render(request, 'room/noRoom.html', {'idRoom':idRoom})
-
 
 @csrf_protect
 def creation(request, idRoom):
