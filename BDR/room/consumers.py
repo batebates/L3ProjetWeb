@@ -4,6 +4,7 @@ from channels.auth import channel_session_user, channel_session_user_from_http
 from room.models import RoomMember
 from core.models import Reponse,Question
 from django.core  import serializers
+from django.contrib.auth.models import User
 from django.db.models.aggregates import Count
 from random import randint
 import json
@@ -33,10 +34,11 @@ def ws_add(message):
     nbrCo = 4
     #RoomMember.objects.filter(room=int(message.content['path'].replace("""/room/""",""))).annotate(Count("membre"))[0]
     valRoom = "Room-" + message.content['path'].replace("""/room/""","")
-    print(nbrCo)
+    print(message.user)
     if(nbrCo<5):
         message.reply_channel.send({"accept": True})
         Group(valRoom).add(message.reply_channel)
+        #RoomMember.objects.create(membre = message.user, room =1, chef = False, question = None,reponse = None, score = 0, etat = 0).save()
         joueur = RoomMember.objects.get(membre = message.user)
         if joueur:
             joueur.room = 1
@@ -44,6 +46,7 @@ def ws_add(message):
             joueur.question = None
         else:
             joueur = RoomMember.objects.create(membre = message.user, room =1, chef = False, question = None,reponse = None, score = 0, etat = 0).save()
+
 
     if(nbrCo==4):
         joueur.question = random(Question.objects.all())
@@ -53,8 +56,16 @@ def ws_add(message):
         tab[0].chef = True
         for joueurs in tab:
             joueurs.question = joueur.question
-        data = serializers.serialize("json",tab)
-        Group(valRoom).send({"text":data})
+            joueurs.save()
+        donnee = {
+                "question": joueur.question.intitule,
+                "etat":joueur.etat,
+                "master" : 0,
+                "score":[tab[0].score,tab[1].score,tab[2].score,tab[3].score],
+                "joueur":[tab[0].membre.username,tab[1].membre.username,tab[2].membre.username,tab[3].membre.username]
+        }
+
+        Group(valRoom).send({"text":json.dumps(donnee)})
         # Accept the socket
 
 
@@ -72,8 +83,15 @@ def ws_receive(message):
         joueur.reponse = Reponse.objects.get(intitule = data['reponse'])
         joueur.etat = 1
         joueur.save()
-        tab = serializers.serialize("json",RoomMember.objects.filter(room = 1))
-        message.reply_channel.send({"text":tab})
+        tab = RoomMember.objects.filter(room = 1)
+        donnee = {
+            "question": joueur.question.intitule,
+            "etat":joueur.etat,
+            "master" : 0,
+            "score":[tab[0].score,tab[1].score,tab[2].score,tab[3].score],
+            "joueur":[tab[0].membre.username,tab[1].membre.username,tab[2].membre.username,tab[3].membre.username]
+            }
+        message.reply_channel.send({"text":json.dumps(donnee)})
     else:
         reponseGagnante=joueur.reponse
         joueur.chef = False
@@ -85,15 +103,22 @@ def ws_receive(message):
         listeDesGagnants[0].chef = True
         listeDesGagnants[0].save()
         joueur.question = random(Question.objects.all())
+        joueur.etat = 0
         joueur.save()
         tab = RoomMember.objects.filter(room = 1)
         tab[0].chef = True
         for joueurs in tab:
             joueurs.question = joueur.question
-            joueurs.etat = 0
             joueurs.save()
-        data = serializers.serialize("json",tab)
-        Group(valRoom).send({"text":data})
+        donnee = {
+                "question": joueur.question.intitule,
+                "etat":joueur.etat,
+                "master" : 0,
+                "score":[tab[0].score,tab[1].score,tab[2].score,tab[3].score],
+                "joueur":[tab[0].membre.username,tab[1].membre.username,tab[2].membre.username,tab[3].membre.username]
+        }
+
+        Group(valRoom).send({"text":json.dumps(donnee)})
 
     #RoomMember.objects.filter(membre = User).reponse = message.content['text']
     # Without enforce_ordering this wouldn't work right

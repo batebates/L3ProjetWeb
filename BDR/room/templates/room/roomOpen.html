@@ -12,7 +12,7 @@
 					<p>{{ question.intitule }}</p>
 				</div>
 
-				<div class="row">
+				<div id=reponse_activate class="row">
 				{% for reponse in reponses %}
 					<div class="col-md-2 carte">
 						<form id=carte-{{reponse.id}} name={{reponse.intitule}} class="gui_element" action="#" method="POST">
@@ -34,28 +34,32 @@
 		<table class="table">
 		<tr>
 			<td>
-			 <p id=joueur1 value={{player1}}><i class="fa fa-user-o" title="Joueur"></i> </p>
+				<i class="fa fa-user-o" title="Joueur"></i>
+			 <p id=joueur1 value={{player1}}> </p>
 			</td>
 			<td id=score1>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<p id=joueur2><i class="fa fa-user-o" title="Joueur"></i> {{player2}} </p>
+			<i class="fa fa-user-o" title="Joueur"></i>
+			<p id=joueur2> {{player2}} </p>
 			</td>
 			<td id=score2>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			 <p id=joueur3><i class="fa fa-star" title="Maitre du jeu"></i> {{player3}} </p>
+				<i class="fa fa-star" title="Maitre du jeu"></i>
+			 <p id=joueur3> {{player3}} </p>
 			</td>
 			<td id=score3>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			 <p id=joueur4><i class="fa fa-user-o" title="Joueur"></i> {{player4}}</p>
+				<i class="fa fa-user-o" title="Joueur"></i>
+			 <p id=joueur4>{{player4}}</p>
 			</td>
 			<td id=score4>
 			</td>
