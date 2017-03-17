@@ -17,7 +17,9 @@
 					<div class="col-md-2 carte">
 						<form id=carte-{{reponse.id}} name={{reponse.intitule}} class="gui_element" action="#" method="POST">
          			{% csrf_token %}
-							<input type="submit" name="submitCard" id="carte" value = "{{ reponse.intitule }}" ></input>
+							<p>{{ reponse.intitule }}</p>
+							<input type="text" id="carte" value="{{ reponse.intitule }}" readonly>	
+							<input type="submit" name="submitCard" value = "Choisir" ></input>
 						</form>
 					</div>
 				{% endfor %}
