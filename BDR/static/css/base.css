@@ -144,6 +144,13 @@ i{
 	float: left;
 }
 
+.carte input[type=submit] {
+	margin: 0px;
+	background-color: #A7A37E;
+	color: black;
+	padding: 0px;
+}
+
 #enonce {
 	color: #EFECCA;
 	background-color: #046380;
