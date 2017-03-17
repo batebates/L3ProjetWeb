@@ -132,16 +132,14 @@ i{
 /* Debut style des salons */
 .carte {
 	word-wrap: break-word;
-	padding: 10px 8px 8px 8px;
+	padding: 0px;	
 	margin-top: 10px;
 	margin-bottom: 10px;
 	margin-left: 1.75%;
 	margin-right: auto;
 	height: 100%;
 	width: 23%;
-	border-width: 5px;
-	border-color: #046380;
-	border-style: solid;
+	
 	background-color: #A7A37E;
 	border-radius: 8px;
 	color: black;
@@ -149,10 +147,16 @@ i{
 }
 
 .carte input[type=submit] {
+	border-width: 5px;
+	border-color: #046380;
+	border-style: solid;
+	border-radius: 8px;
+	height: 100%;
+	width: 100%;
 	margin: 0px;
 	background-color: #A7A37E;
 	color: black;
-	padding: 0px;
+	padding: 10px 8px 8px 8px;
 }
 
 #enonce {
@@ -162,6 +166,7 @@ i{
 	margin-left: auto;
 	margin-right: auto;
 	float: none;
+	padding: 10px 8px 8px 8px;
 }
 
 .joueur {
