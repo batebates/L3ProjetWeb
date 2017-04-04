@@ -1,4 +1,5 @@
 # L3ProjetWeb
+<a href="https://codeclimate.com/github/batebates/L3ProjetWeb"><img src="https://codeclimate.com/github/batebates/L3ProjetWeb/badges/issue_count.svg" /></a>
 
 ## Mise en place du projet
 Si virtualenv n'est pas installé :
